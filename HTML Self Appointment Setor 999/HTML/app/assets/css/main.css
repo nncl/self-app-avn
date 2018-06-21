@@ -1,0 +1,448 @@
+/* Estilos Padrões */
+
+.mt16 { margin-top: 16px; }
+.mt24 { margin-top: 24px; }
+.mt60 { margin-top: 60px; }
+.mt80 { margin-top: 80px; }
+
+.dblock { display: block; }
+
+.a-center { text-align: center; }
+.a-left { text-align: left; }
+.a-right { text-align: right; }
+
+.w100 { width: 100%; }
+
+.desktop-w100 { width: 100%; }
+
+#body-form-self p.text {
+  color: #2699fb;
+}
+
+#body-form-self * {
+  font-family: "Arial";
+}
+
+#body-form-self .container {
+  width: 860px;
+}
+
+#body-form-self .title {
+  font-size: 20px;
+  color: #2699fb;
+}
+
+#body-form-self .title-arquivo {
+  font-size: 18px;
+  color: #77c1ff;
+  font-weight: lighter;
+  border-bottom: 1px solid #77c1ff;
+  padding-bottom: 12px;
+}
+
+#body-form-self label {
+  font-size: 9px;
+  color: #2699fb;
+  margin-top: 8px;
+}
+
+#body-form-self #overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(244,244,244, 0.7);
+  z-index: /*10*/1006;
+}
+
+#body-form-self #overlay #overlay_load {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: -20px 0 0 -115px;
+    padding-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #c90f0f;
+    background: url(../images/loading.gif) center top no-repeat;
+    background-size: 100%;
+}
+
+.modal-backdrop {
+  background-color: #f4f4f4 !important;
+  opacity: 0.7 !important;
+}
+
+#body-form-self .title_sucesso {
+  font-size: 18px;
+}
+
+/* botões */
+
+#body-form-self .btns {
+  padding-top: 36px;
+  margin-top: 24px;
+  border-top: 1px solid #2699fb;
+  padding-bottom: 24px;
+  text-align: right;
+}
+
+#body-form-self .btn {
+    padding: 10px 32px;
+}
+
+#body-form-self .btn-info {
+  background-color: #2699fb;
+}
+
+#body-form-self .btn-arquivo {
+  background-color: #77c1ff;
+  border: none;
+  margin-top: 10px;
+}
+
+/* ===================== */
+
+/* CUSTOM CHECK */
+
+#body-form-self label.customCheck {
+  font-size: 14px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+#body-form-self .customCheck input {
+    position: relative;
+    z-index: -9999;
+    visibility: hidden;
+    display: none;
+}
+
+#body-form-self .customCheck span.check {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border: 1px solid #bce0fd;
+    border-radius: 6px;
+}
+
+#body-form-self .customCheck input:checked + span.check {
+    background: url("../images/check.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 80%;
+}
+
+/* ==================== */
+
+#body-form-self .check-txt {
+  padding-left: 10px;
+  float: right;
+  margin-top: 3px;
+}
+
+#body-form-self .form-control {
+  font-size: 14px;
+  padding: 7px;
+  border: 1px solid #bce0fd;
+  color: #2699fb;
+  margin-top: 8px;
+}
+
+#body-form-self .txt-cpf {
+  letter-spacing: 3px;
+}
+
+#body-form-self .step-bar {
+  position: relative;
+}
+
+#body-form-self .step-bar .line {
+  width: 99%;
+  height: 4px;
+  background-color: #bce0fd;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#body-form-self .step-bar .itens {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+#body-form-self .input-error {
+  border: 2px solid #D9272D !important;
+}
+
+#body-form-self .msg-error {
+  color: #D9272D;
+  display: block;
+}
+
+.btn.blank {
+  background-color: transparent;
+  border: none;
+  color: #a1a1a1;
+}
+
+.btn-voltar {
+  background-color: #cbcbcb !important;
+  border: none;
+}
+
+#body-form-self .content-arquivo {
+  padding: 16px 0;
+}
+
+#body-form-self .content-arquivo .text {
+  color: #77c1ff;
+}
+
+/* Radio button */
+.radioCustom {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 26px;
+}
+
+.radioCustom input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-top: 0;
+}
+
+.radioCustom:hover input ~ .radio {
+    background-color: #ccc;
+}
+
+.radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radioCustom input:checked ~ .radio:after {
+    display: block;
+}
+
+.radioCustom .radio:after {
+  top: 7px;
+  left: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2196F3;
+}
+
+.radioCustom .radio-txt {
+  margin-top: 5px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+/* File Upload */
+.input-fieldnome p {
+    max-width: 100%;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+.input-fieldnome label {
+    height: 63px;
+    width: 40px;
+    position: absolute;
+    z-index: 2;
+}
+
+.drop-box {
+  height: 120px;
+  border: 1px solid #77c1ff;
+}
+
+.drop-box .drop-text {
+  width: 100%;
+  margin-top: 22px;
+  color: #2699fb;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.file-box label {
+  font-size: 12px !important;
+}
+
+.upload-item {
+  border: 1px solid #77c1ff;
+  padding: 30px;
+  position: relative;
+  padding-left: 50px;
+}
+
+.upload-item p {
+  margin-bottom: 0;
+}
+
+.upload-item .file-name {
+  font-size: 12px;
+    color: #2699fb;
+}
+
+.upload-item .file-size {
+  font-size: 11px;
+    color: #77c1ff;
+}
+
+.upload-item .icon {
+  position: absolute;
+  left: 4px;
+}
+
+/*------>>> Animations <<<-----*/
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in;
+  -moz-transition: opacity 0.25s ease-in;
+  -o-transition: opacity 0.25s ease-in;
+  -ms-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  transition-delay: 0.25s;
+}
+.fade.in{
+  opacity: 1;
+}
+
+.animate-switch-container {
+  position:relative;
+  overflow: hidden;
+  min-height: 500px;
+  width: 100%;
+  background-size: 50px 50px;
+}
+
+.animate-switch{
+  width: 100%;
+}
+
+.animate-switch.ng-animate {
+  -webkit-transition:all 0.5s;
+  transition:all 0.5s;
+  position:absolute;
+
+}
+
+/* show */
+.animate-switch.ng-leave{
+  left:0;
+}
+/* hide */
+.forward .animate-switch.ng-leave.ng-leave-active{
+  left:-100%;
+}
+.backward .animate-switch.ng-leave.ng-leave-active{
+  left: 100%;
+}
+/* show entering slide  */
+/* hide */
+.forward .animate-switch.ng-enter {
+  left:100%;
+}
+.backward .animate-switch.ng-enter {
+  left:-100%;
+}
+/* show */
+.animate-switch.ng-enter.ng-enter-active {
+  left:0;
+}
+
+
+/*-----------------------------------*/
+/*------>>> Validation <<<-----------*/
+/*-----------------------------------*/
+
+.form-validation input.ng-invalid-maxlength {
+  border:2px solid #D9272D;
+}
+
+.length-error {
+  color: #D9272D;
+  display: block;
+  font-size: 12px;
+  opacity: .8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  line-height: 18px;
+  padding: 10px 10px 5px 10px;
+  margin: -25px 0 20px 0;
+  background-color: #E3E3E3;
+  border-radius: 0 0 5px 5px;
+}
+
+/*-----------------------------------*/
+/*------->>> FORM STYLES <<<---------*/
+/*-----------------------------------*/
+
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: 799px) {
+
+  #body-form-self .container {
+    width: 100% !important;
+    padding: 0 16px;
+  }
+
+  .mtop16 {
+    margin-top: 16px;
+  }
+  
+}
+
+@media only screen and (max-width: 540px) {
+
+  #body-form-self .step-bar .itens img {
+    width: 60px;
+  }
+  
+}
