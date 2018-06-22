@@ -296,7 +296,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
   /* ============== Função http para pesquisa dos dados do endereço */
   $scope.buscarCep = function ( tipo, obj_end ) {
 
-    var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+    var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
 
     var ddd = $scope.formParams.st1_celular.substring(0, 2);
     var telefone = $scope.formParams.st1_celular.substring(2);
@@ -402,7 +402,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
       $scope.formPrincipal.cpf.$setValidity("validador", true);
 
-      var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+      var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
 
       var parameter = JSON.stringify(
         {
@@ -641,7 +641,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
       $scope.formValidation = false;
 
-      var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+      var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
       var parameter = $scope.getSendParameter();
 
       console.log(parameter);
