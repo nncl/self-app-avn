@@ -54,7 +54,7 @@
           <form name="formPrincipal" class="form-validation" role="form" novalidate>
 
             <div class="animate-switch-container" ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
-
+               <!--update version prod v06-->
                <!-- ============================ PRIMEIRO PASSO (STAGE0) -->
 
                <div class="animate-switch" ng-switch-default>
@@ -83,7 +83,7 @@
                       <label>NOME COMPLETO</label>
                       <input type="text" class="form-control" id="nome_completo" name="nome_completo" ng-model="formParams.st1_nome" required ng-class="{'input-error': formValidation && formPrincipal.nome_completo.$error.required}" maxlength="50">
                     </div>
-					  
+
 					<span class="msg-error" ng-show="formValidation && formPrincipal.nome_completo.$error.required">
                       Campo obrigat&oacute;rio
                     </span>
@@ -99,7 +99,7 @@
                       <label>CELULAR: </label>
                       <input type="text" class="form-control" id="celular" name="celular" ng-model="formParams.st1_celular" ui-mask="(99) ?99999.9999" required ng-minlength="11" ng-pattern="/^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$/" ng-class="{'input-error': formValidation && formPrincipal.celular.$error.required}">
                     </div>
-					
+
 					<span class="msg-error" ng-show="formValidation && formPrincipal.celular.$error.required">
                       Campo obrigatorio
                     </span>
@@ -107,7 +107,7 @@
           <span class="msg-error" ng-show="formValidation && formPrincipal.celular.$error.minlength">
                     Celular inválido, coloque no mínimo 11 digitos
           </span>
-					
+
 					<span class="msg-error" ng-show="formPrincipal.celular.$error.pattern">
                       Celular inválido
                     </span>
@@ -138,11 +138,11 @@
                       <label>E-MAIL: </label>
                       <input type="email" class="form-control" id="email" name="email" ng-model="formParams.st1_email" required ng-class="{'input-error': formValidation && formPrincipal.email.$error.required}" maxlength="50">
                     </div>
-					  
+
 					<span class="msg-error" ng-show="formValidation && formPrincipal.email.$error.required">
                       Campo obrigat&oacute;rio
                     </span>
-					  
+
                     <span class="msg-error" ng-show="formPrincipal.email.$error.email">
                       E-mail inv&aacute;lido
                     </span>
@@ -155,11 +155,11 @@
                       <label>CONFIRME O E-MAIL: </label>
                       <input type="email" class="form-control" id="confirme_email" name="confirme_email" ng-model="formParams.st1_confirm_email" required ng-class="{'input-error': formValidation && formPrincipal.confirme_email.$error.required}" maxlength="50">
                     </div>
-					  
+
 					<span class="msg-error" ng-show="formValidation && formPrincipal.confirme_email.$error.required">
                       Campo obrigat&oacute;rio
                     </span>
-					  
+
                     <span class="msg-error" ng-show="formPrincipal.confirme_email.$error.email">
                       E-mail inv&aacute;lido
                     </span>
@@ -182,7 +182,7 @@
 					<span class="msg-error" ng-show="formValidation && formPrincipal.data_nascimento.$error.required">
                       Campo obrigat&oacute;rio
                     </span>
-					  
+
                     <span class="msg-error" ng-show="formPrincipal.data_nascimento.$error.pattern">
                       Data de nascimento inv&aacute;lida
                     </span>
@@ -238,7 +238,7 @@
                   <button type="button" class="btn blank" ng-click="cleanFields()">Limpar Campos</button>
                   <button type="button" class="btn btn-info" ng-click="next('stage1')">Pr&oacute;ximo</button>
                 </div>
-                
+
                </div>
 
                <!-- ================ -->
@@ -257,7 +257,7 @@
                         <label>CEP</label>
                         <input type="text" class="form-control txt-cpf" id="end_cep" name="end_cep" ng-model="formParams.endereco.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('normal', formParams.endereco)" required ng-class="{'input-error': formValidation && formPrincipal.end_cep.$error.required}">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_cep.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -266,7 +266,7 @@
                   </div>
 
                   <div class="row">
-					
+
 					<div class="col-xs-12 col-md-2">
                     	<div class="form-group">
 							<label>TIPO ENDEREÇO</label>
@@ -276,13 +276,13 @@
                       		Campo obrigat&oacute;rio
 	                    </span>
 				    </div>
-					  
+
 				   <div class="col-xs-12 col-md-6">
                       <div class="form-group">
 						<label>ENDERE&Ccedil;O</label>
                         <input type="text" class="form-control" id="end_endereco" name="end_endereco" ng-model="formParams.endereco.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_endereco.$error.required}" ng-readonly="validcep" maxlength="60">
                       </div>
-						
+
 				      <span class="msg-error" ng-show="formValidation && formPrincipal.end_endereco.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -295,7 +295,7 @@
                         <label>N&Uacute;MERO</label>
                         <input type="text" class="form-control" id="end_numero" name="end_numero" ng-model="formParams.endereco.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_numero.$error.required}" maxlength="5">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_numero.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -330,7 +330,7 @@
                         <label>BAIRRO </label>
                         <input type="text" class="form-control" id="end_bairro" name="end_bairro" ng-model="formParams.endereco.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_bairro.$error.required}" ng-readonly="validcep" maxlength="30">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_bairro.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -347,7 +347,7 @@
                         <label>CIDADE </label>
                         <input type="text" class="form-control" id="end_cidade" name="end_cidade" ng-model="formParams.endereco.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_cidade.$error.required}" ng-readonly="validcep" maxlength="20">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_cidade.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -358,7 +358,7 @@
 
                       <div class="form-group">
                         <label>ESTADO </label>
-                         
+
                         <!-- <select name="end_estado" class="form-control" id="end_estado" ng-model="formParams.endereco.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}"
                          ng-options="estado.nome for estado in estados" ng-readonly="validcep">
                             <option value="">Selecione o Estado</option>
@@ -366,34 +366,34 @@
                         <!--ng-options="estado.nome for estado in estados-->
                         <!--<input type="text" class="form-control" id="end_estado" name="end_estado" ng-pattern="/[A-Z\s]+/" ng-model="formParams.endereco.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-readonly="validcep" maxlength="2">-->
 
-                        <select name="end_estado" class="form-control" id="end_estado" ng-model="formParams.endereco.st2_estado" ng-readonly="validcep" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-change="formParams.endereco.st2_estado = formParams.endereco.st2_estado.toUpperCase();" ng-disabled="validcep">  
-                            <option value="AC">ACRE</option>  
-                            <option value="AL">ALAGOAS</option> 
-                            <option value="AP">AMAPÁ</option> 
-                            <option value="AM">AMAZONAS</option>  
-                            <option value="BA">BAHIA</option> 
-                            <option value="CE">CEARÁ</option> 
-                            <option value="DF">DISTRITO FEDERAL</option>  
-                            <option value="ES">ESPÍRITO SANTO</option>  
-                            <option value="GO">GOIÁS</option> 
-                            <option value="MA">MARANHÃO</option>  
-                            <option value="MT">MATO GROSSO</option> 
-                            <option value="MS">MATO GROSSO DO SUL</option>  
-                            <option value="MG">MINAS GERAIS</option>  
-                            <option value="PA">PARÁ</option>  
-                            <option value="PB">PARAÍBA</option> 
-                            <option value="PR">PARANÁ</option>  
-                            <option value="PE">PERNAMBUCO</option>  
-                            <option value="PI">PIAUÍ</option> 
-                            <option value="RJ">RIO DE JANEIRO</option>  
-                            <option value="RN">RIO GRANDE DO NORTE</option> 
-                            <option value="RS">RIO GRANDE DO SUL</option> 
-                            <option value="RO">RONDÔNIA</option>  
-                            <option value="RR">RORAIMA</option> 
-                            <option value="SC">SANTA CATARINA</option>  
-                            <option value="SP">SÃO PAULO</option> 
-                            <option value="SE">SERGIPE</option> 
-                            <option value="TO">TOCANTINS</option> 
+                        <select name="end_estado" class="form-control" id="end_estado" ng-model="formParams.endereco.st2_estado" ng-readonly="validcep" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-change="formParams.endereco.st2_estado = formParams.endereco.st2_estado.toUpperCase();" ng-disabled="validcep">
+                            <option value="AC">ACRE</option>
+                            <option value="AL">ALAGOAS</option>
+                            <option value="AP">AMAPÁ</option>
+                            <option value="AM">AMAZONAS</option>
+                            <option value="BA">BAHIA</option>
+                            <option value="CE">CEARÁ</option>
+                            <option value="DF">DISTRITO FEDERAL</option>
+                            <option value="ES">ESPÍRITO SANTO</option>
+                            <option value="GO">GOIÁS</option>
+                            <option value="MA">MARANHÃO</option>
+                            <option value="MT">MATO GROSSO</option>
+                            <option value="MS">MATO GROSSO DO SUL</option>
+                            <option value="MG">MINAS GERAIS</option>
+                            <option value="PA">PARÁ</option>
+                            <option value="PB">PARAÍBA</option>
+                            <option value="PR">PARANÁ</option>
+                            <option value="PE">PERNAMBUCO</option>
+                            <option value="PI">PIAUÍ</option>
+                            <option value="RJ">RIO DE JANEIRO</option>
+                            <option value="RN">RIO GRANDE DO NORTE</option>
+                            <option value="RS">RIO GRANDE DO SUL</option>
+                            <option value="RO">RONDÔNIA</option>
+                            <option value="RR">RORAIMA</option>
+                            <option value="SC">SANTA CATARINA</option>
+                            <option value="SP">SÃO PAULO</option>
+                            <option value="SE">SERGIPE</option>
+                            <option value="TO">TOCANTINS</option>
                         </select>
                       </div>
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_estado.$error.required">
@@ -443,7 +443,7 @@
                         <label>CEP</label>
                         <input type="text" class="form-control txt-cpf" id="end_entrega_cep" name="end_entrega_cep" ng-model="formParams.endereco_entrega.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('entrega', formParams.endereco_entrega)" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cep.$error.required}" >
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_cep.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -462,14 +462,14 @@
                       		Campo obrigat&oacute;rio
                       	</span>
 				    </div>
-					  
+
                     <div class="col-xs-12 col-md-6">
 
                       <div class="form-group">
                         <label>ENDERE&Ccedil;O</label>
                         <input type="text" class="form-control" id="end_entrega_endereco" name="end_entrega_endereco" ng-model="formParams.endereco_entrega.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_endereco.$error.required}" ng-readonly="validcepentrega" maxlength="60">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_endereco.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -482,7 +482,7 @@
                         <label>N&Uacute;MERO</label>
                         <input type="text" class="form-control" id="end_entrega_numero" name="end_entrega_numero" ng-model="formParams.endereco_entrega.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_numero.$error.required}" maxlength="5">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_numero.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -517,7 +517,7 @@
                         <label>BAIRRO </label>
                         <input type="text" class="form-control" id="end_entrega_bairro" name="end_entrega_bairro" ng-model="formParams.endereco_entrega.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_bairro.$error.required}" ng-readonly="validcepentrega" maxlength="30">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_bairro.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -534,7 +534,7 @@
                         <label>CIDADE </label>
                         <input type="text" class="form-control" id="end_entrega_cidade" name="end_entrega_cidade" ng-model="formParams.endereco_entrega.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cidade.$error.required}" ng-readonly="validcepentrega" maxlength="20">
                       </div>
-						
+
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_cidade.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -546,37 +546,37 @@
                       <div class="form-group">
                         <label>ESTADO </label>
                         <!--<input type="text" class="form-control" id="end_entrega_estado" name="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-readonly="validcepentrega" maxlength="2">-->
-                        <select name="end_entrega_estado" class="form-control" id="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" ng-readonly="validcepentrega" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-change="formParams.endereco_entrega.st2_estado = formParams.endereco_entrega.st2_estado.toUpperCase();" ng-disabled="validcepentrega">  
-                            <option value="AC">ACRE</option>  
-                            <option value="AL">ALAGOAS</option> 
-                            <option value="AP">AMAPÁ</option> 
-                            <option value="AM">AMAZONAS</option>  
-                            <option value="BA">BAHIA</option> 
-                            <option value="CE">CEARÁ</option> 
-                            <option value="DF">DISTRITO FEDERAL</option>  
-                            <option value="ES">ESPÍRITO SANTO</option>  
-                            <option value="GO">GOIÁS</option> 
-                            <option value="MA">MARANHÃO</option>  
-                            <option value="MT">MATO GROSSO</option> 
-                            <option value="MS">MATO GROSSO DO SUL</option>  
-                            <option value="MG">MINAS GERAIS</option>  
-                            <option value="PA">PARÁ</option>  
-                            <option value="PB">PARAÍBA</option> 
-                            <option value="PR">PARANÁ</option>  
-                            <option value="PE">PERNAMBUCO</option>  
-                            <option value="PI">PIAUÍ</option> 
-                            <option value="RJ">RIO DE JANEIRO</option>  
-                            <option value="RN">RIO GRANDE DO NORTE</option> 
-                            <option value="RS">RIO GRANDE DO SUL</option> 
-                            <option value="RO">RONDÔNIA</option>  
-                            <option value="RR">RORAIMA</option> 
-                            <option value="SC">SANTA CATARINA</option>  
-                            <option value="SP">SÃO PAULO</option> 
-                            <option value="SE">SERGIPE</option> 
-                            <option value="TO">TOCANTINS</option> 
+                        <select name="end_entrega_estado" class="form-control" id="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" ng-readonly="validcepentrega" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-change="formParams.endereco_entrega.st2_estado = formParams.endereco_entrega.st2_estado.toUpperCase();" ng-disabled="validcepentrega">
+                            <option value="AC">ACRE</option>
+                            <option value="AL">ALAGOAS</option>
+                            <option value="AP">AMAPÁ</option>
+                            <option value="AM">AMAZONAS</option>
+                            <option value="BA">BAHIA</option>
+                            <option value="CE">CEARÁ</option>
+                            <option value="DF">DISTRITO FEDERAL</option>
+                            <option value="ES">ESPÍRITO SANTO</option>
+                            <option value="GO">GOIÁS</option>
+                            <option value="MA">MARANHÃO</option>
+                            <option value="MT">MATO GROSSO</option>
+                            <option value="MS">MATO GROSSO DO SUL</option>
+                            <option value="MG">MINAS GERAIS</option>
+                            <option value="PA">PARÁ</option>
+                            <option value="PB">PARAÍBA</option>
+                            <option value="PR">PARANÁ</option>
+                            <option value="PE">PERNAMBUCO</option>
+                            <option value="PI">PIAUÍ</option>
+                            <option value="RJ">RIO DE JANEIRO</option>
+                            <option value="RN">RIO GRANDE DO NORTE</option>
+                            <option value="RS">RIO GRANDE DO SUL</option>
+                            <option value="RO">RONDÔNIA</option>
+                            <option value="RR">RORAIMA</option>
+                            <option value="SC">SANTA CATARINA</option>
+                            <option value="SP">SÃO PAULO</option>
+                            <option value="SE">SERGIPE</option>
+                            <option value="TO">TOCANTINS</option>
                         </select>
                       </div>
-						
+
 				      <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_estado.$error.required">
                       	Campo obrigat&oacute;rio
                       </span>
@@ -588,7 +588,7 @@
                 </div>
 
                 <div class="btns">
-                  <div class="row"> 
+                  <div class="row">
                     <div class="col-xs-6 a-left">
                       <button type="button" class="btn btn-info btn-voltar" ng-click="back('')">Voltar</button>
                     </div>
@@ -598,7 +598,7 @@
                     </div>
                   </div>
                 </div>
-                
+
               </div>
               <!-- ================ -->
 
@@ -643,7 +643,7 @@
 
                         <label class="dblock">INSIRA UMA FOTO DO SEU ROSTO</label>
 
-                        <!--<div ngf-select="uploadArquivo('foto', $file)" ngf-drop="uploadArquivo('foto', $file)" ng-model="file_foto" name="arquivo_foto" class="drop-box"  required ngf-pattern="'image/jpeg,image/jpg,image/png'" 
+                        <!--<div ngf-select="uploadArquivo('foto', $file)" ngf-drop="uploadArquivo('foto', $file)" ng-model="file_foto" name="arquivo_foto" class="drop-box"  required ngf-pattern="'image/jpeg,image/jpg,image/png'"
    ngf-resize="{width: 100, height: 100, quality: .8, type: 'image/jpeg',
                ratio: '1:2', centerCrop: true, pattern='.jpg', restoreExif: false}">
 
@@ -661,11 +661,11 @@
               Arraste o arquivo para esta área ou clique em
           </div>
           <div class="drop-button a-center mt16">
-            <button type="file" ngf-select="uploadArquivo('foto', $file)" ngf-drop="uploadArquivo('foto', $file)" ng-model="file_foto" name="filess"    
+            <button type="file" ngf-select="uploadArquivo('foto', $file)" ngf-drop="uploadArquivo('foto', $file)" ng-model="file_foto" name="filess"
              accept="image/*" ngf-max-size="3MB" required
              ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
           </div>
-          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large 
+          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large
           {{errorFile.size / 1000000|number:1}}MB: max 2M</i>-->
       </div>
 
@@ -745,11 +745,11 @@
                               Arraste o arquivo para esta área ou clique em
                           </div>
                           <div class="drop-button a-center mt16">
-                            <button type="file" ngf-select="uploadArquivo('residencia', $file)" ngf-drop="uploadArquivo('residencia', $file)" ng-model="file_residencia" name="filess_residencia"    
+                            <button type="file" ngf-select="uploadArquivo('residencia', $file)" ngf-drop="uploadArquivo('residencia', $file)" ng-model="file_residencia" name="filess_residencia"
                              accept="image/*" ngf-max-size="3MB" required
                              ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
                           </div>
-                          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large 
+                          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large
                           {{errorFile.size / 1000000|number:1}}MB: max 2M</i>-->
                       </div>
 
@@ -828,11 +828,11 @@
                               Arraste o arquivo para esta área ou clique em
                           </div>
                           <div class="drop-button a-center mt16">
-                            <button type="file" ngf-select="uploadArquivo('identificacao', $file)" ngf-drop="uploadArquivo('identificacao', $file)" ng-model="file_identificacao" name="filess_identificacao"    
+                            <button type="file" ngf-select="uploadArquivo('identificacao', $file)" ngf-drop="uploadArquivo('identificacao', $file)" ng-model="file_identificacao" name="filess_identificacao"
                              accept="image/*" ngf-max-size="3MB" required
                              ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
                           </div>
-                          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large 
+                          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large
                           {{errorFile.size / 1000000|number:1}}MB: max 2M</i>-->
                         </div>
 
@@ -856,7 +856,7 @@
                             Arquivo pesado, o máximo é de 3mb <br/><br/>
                           </p>
 						  <!--<p ng-click="file_identificacao2 = ''">X</p>-->
-							
+
                         </div>
 
                       </div>
@@ -921,11 +921,11 @@
                                 Arraste o arquivo para esta área ou clique em
                             </div>
                             <div class="drop-button a-center mt16">
-                              <button type="file" ngf-select="uploadArquivo('cpf', $file)" ngf-drop="uploadArquivo('cpf', $file)" ng-model="file_cpf" name="filess_cpf"    
+                              <button type="file" ngf-select="uploadArquivo('cpf', $file)" ngf-drop="uploadArquivo('cpf', $file)" ng-model="file_cpf" name="filess_cpf"
                                accept="image/*" ngf-max-size="3MB" required
                                ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
                             </div>
-                            <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large 
+                            <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large
                             {{errorFile.size / 1000000|number:1}}MB: max 2M</i>-->
                         </div>
 
@@ -938,7 +938,7 @@
                             Arquivo pesado, o máximo é de 3mb <br/><br/>
                           </p>
 						  <!--<p ng-click="file_cpf = ''">X</p>-->
-							
+
                         </div>
 
                       </div>
@@ -1026,7 +1026,7 @@
                 </div>
 
                 <div class="btns">
-                  <div class="row"> 
+                  <div class="row">
                     <div class="col-xs-6 a-left">
                       <button type="button" class="btn btn-info btn-voltar" ng-click="back('stage1')">Voltar</button>
                     </div>
@@ -1062,7 +1062,7 @@
                 </div>
 
                 <div class="btns">
-                  <div class="row"> 
+                  <div class="row">
                     <div class="col-xs-6 a-left">
                       <button type="button" class="btn btn-info btn-voltar" ng-click="back('stage2')">Voltar</button>
                     </div>
@@ -1072,7 +1072,7 @@
                     </div>
                   </div>
                 </div>
-                
+
               </div>
               <!-- ================ -->
 
@@ -1094,14 +1094,14 @@ Caso você tenha alguma dúvida entre em contato com: 0800 9407373</p>
                   </div>
 
                 </div>
-                
+
               </div>
               <!-- ================ -->
 
             </div>
 
           </form>
-          
+
         </div>
 
         <!-- Modal -->
