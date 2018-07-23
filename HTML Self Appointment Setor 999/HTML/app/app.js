@@ -5,12 +5,121 @@ angular.module('formSelf', ['ngAnimate', 'ui.mask', 'ngFileUpload']).
 controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope, $http, $httpProvider, $filter, Upload) {
 
   /* ============== Nomeação dos scopes padrões */
-
+  
   $scope.numero_proposta = "";
 
   $scope.formParams = {};
+  /*$scope.estados = [
+      {
+        "nome": 'AC'
+      },
 
-  $scope.stage = "stage2";
+      {
+        "nome": 'AL'
+      },
+
+      {
+        "nome": 'AP'
+      },
+
+      {
+        "nome": 'AM'
+      },
+
+      {
+        "nome": 'BA'
+      },
+
+      {
+        "nome": 'CE'
+      },
+
+      {
+        "nome": 'DF'
+      },
+
+      {
+        "nome": 'ES'
+      },
+
+      {
+        "nome": 'GO'
+      },
+
+      {
+        "nome": 'MA'
+      },
+
+      {
+        "nome": 'MT'
+      },
+
+      {
+        "nome": 'MS'
+      },
+
+      {
+        "nome": 'MG'
+      },
+
+      {
+        "nome": 'PA'
+      },
+
+      {
+        "nome": 'PB'
+      },
+
+      {
+        "nome": 'PR'
+      },
+
+      {
+        "nome": 'PE'
+      },
+
+      {
+        "nome": 'PI'
+      },
+
+      {
+        "nome": 'RJ'
+      },
+
+      {
+        "nome": 'RN'
+      },
+
+      {
+        "nome": 'RS'
+      },
+
+      {
+        "nome": 'RO'
+      },
+
+      {
+        "nome": 'RR'
+      },
+
+      {
+        "nome": 'SC'
+      },
+
+      {
+        "nome": 'SP'
+      },
+
+      {
+        "nome": 'SE'
+      },
+
+      {
+        "nome": 'TO'
+      }
+  ]*/
+
+  $scope.stage = "";
   $scope.formValidation = false;
   $scope.validcep = true;
   $scope.validcepentrega = true;
@@ -20,7 +129,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
   $scope.regEVA = 99999999;
 
   $scope.idade = '';
-
+  
   $scope.formParams = {
 
     st1_cpf: '',
@@ -100,14 +209,14 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
                 }
                 return source;
             };
-
+	
 	$scope.validaPeso = function(foto){
     if(foto >= 1000 || foto != null){
       console.log('teste');
       console.log(foto);
     }else{console.log(foto)}
   };
-
+	
   /* ============== Função referente ao envio dos arquivos e alteração dos escopos */
   $scope.uploadArquivo = function( tipo, arquivo) {
 
@@ -117,9 +226,9 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
         $scope.file_foto = arquivo;
         if( $scope.file_foto != null ){
-          $scope.file_foto.tamanho = formatFileSize(arquivo.size, 3);
+          $scope.file_foto.tamanho = formatFileSize(arquivo.size, 3);  
         }
-
+          
       break;
 
       case 'residencia':
@@ -131,21 +240,19 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
       break;
 
-      case 'identificacao1':
+      case 'identificacao':
 
+        if($scope.file_identificacao1 == '' || $scope.file_identificacao1 == null) {
           $scope.file_identificacao1 = arquivo;
           if( $scope.file_identificacao1 != null ){
             $scope.file_identificacao1.tamanho = formatFileSize(arquivo.size, 3);
           }
-
-      break;
-
-      case 'identificacao2':
-
+        } else if($scope.file_identificacao1 != '' && arquivo != null) {
           $scope.file_identificacao2 = arquivo;
           if( $scope.file_identificacao2 != null ){
             $scope.file_identificacao2.tamanho = formatFileSize(arquivo.size, 3);
           }
+        }
 
       break;
 
@@ -185,11 +292,11 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 	  console.log("fileN, ", fileN);
 	  console.log("file_foto, ", $scope.file_foto);
   };
-
+  
   /* ============== Função http para pesquisa dos dados do endereço */
   $scope.buscarCep = function ( tipo, obj_end ) {
 
-    var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+    var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
 
     var ddd = $scope.formParams.st1_celular.substring(0, 2);
     var telefone = $scope.formParams.st1_celular.substring(2);
@@ -206,7 +313,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
         "TipoServico": "CEP",
         "email": $scope.formParams.st1_email,
         "celular": {
-          "ddd": ddd,
+          "ddd": ddd, 
           "telefone": telefone
         },
         "enderecoCobranca": {
@@ -292,16 +399,10 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     if(!checkCPF(cpf)) {
       $scope.formPrincipal.cpf.$setValidity("validador", false);
     } else {
-//if($scope.numero_proposta == ""){
+
       $scope.formPrincipal.cpf.$setValidity("validador", true);
 
-      var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
-
-      var ddd = $scope.formParams.st1_celular.substring(0, 2);
-      var telefone = $scope.formParams.st1_celular.substring(2);
-
-      var ddd_alternativo = $scope.formParams.st1_telefone.substring(0, 2);
-      var telefone_alternativo = $scope.formParams.st1_telefone.substring(2);
+      var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
 
       var parameter = JSON.stringify(
         {
@@ -311,38 +412,25 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
             "cpf": cpf,
             "TipoServico": "CPF",
             "setorEVA": $scope.setorEVA,
-            "regAscEVA": $scope.regEVA,
-
-            "nome": $scope.formParams.st1_nome,
-            "alternativo":{
-               "ddd": ddd_alternativo,
-               "telefone": telefone_alternativo
-            },
-            "celular":{
-               "ddd": ddd,
-               "telefone": telefone
-            },
-            "email": $scope.formParams.st1_email
+            "regAscEVA": $scope.regEVA
           }
         }
       );
-
-      //var parameter = $scope.getSendParameter();
-
-      console.log(parameter);
 
       $http({
           method: 'POST',
           url: url,
           data: parameter,
           headers: {
-              "Content-Type": "text/plain; charset=UTF-8\r\n"
+              "Content-Type": "text/plain"
           },
       }).then(function(response) {
 
         var dados = response.data;
         var dados_proposta = dados.data.proposta;
 
+        //console.log(dados.data.uf);
+        
         /* Retorna erro referente ao cpf */
         if(dados.status > 2) {
 
@@ -353,22 +441,22 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
           /* Pega o dado de valor da proposta */
           $scope.numero_proposta = dados_proposta.numeroProposta;
-          console.log($scope.numero_proposta);
 
         }
 
       });
-//}
+
     }
 
   }
 
   /* ============== Validação e requisição do serviço de CPF */
   $scope.validDate = function ( date ) {
-  $scope.idade = getIdade( date );
 
+    $scope.idade = getIdade( date );
+	  
 	checkDate( date );
-
+		  
     if( $scope.idade == 0 ) {
       $scope.formPrincipal.data_nascimento.$setValidity("validador", false);
     } else {
@@ -376,7 +464,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     }
 
   }
-
+  
   /* ============== Limpar os campos do primeiro passo */
   $scope.cleanFields = function () {
 
@@ -388,16 +476,15 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     $scope.formParams.st1_confirm_email = '';
     $scope.formParams.st1_nasc_date = '';
     $scope.formParams.st1_termos = '';
-    $scope.numero_proposta = '';
-    $scope.formValidation.$pristine;
+
   }
 
   /* ============== Função padrão para validação e passagem de passo */
   $scope.next = function (stage) {
-
+    
     $scope.formValidation = true;
-
-    if ($scope.formPrincipal.$valid  && $scope.formParams.st1_email == $scope.formParams.st1_confirm_email) {
+    
+    if ($scope.formPrincipal.$valid) {
       $scope.direction = 1;
       $scope.stage = stage;
       $scope.formValidation = false;
@@ -427,12 +514,12 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
         var base64 = e.target.result.split(',').pop();
 
         //console.log(base64);
-
+        
         //base64.replace("data:image/jpeg;base64,", "");
         //base64.replace("data:image/png;base64,", "");
         //base64.replace("data:image/gif;base64,", "");
         //base64.replace("data:image/bmp;base64,", "");
-
+       
         $scope.json_arquivos.push({
           "tipoImagem": "1",
           "base64": base64
@@ -545,7 +632,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     $scope.stage = stage;
 
   };
-
+  
   /* ============== Função para submeter o form */
   $scope.submitForm = function () {
 
@@ -554,7 +641,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
       $scope.formValidation = false;
 
-      var url = "https://pco-uat-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+      var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
       var parameter = $scope.getSendParameter();
 
       console.log(parameter);
@@ -602,16 +689,16 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     var dt = $scope.formParams.st1_nasc_date.split("/");
     var data_nascimento = dt[2]+dt[1]+dt[0];
 
-    var json = {
+    var json = {  
       "proposta":{
         "origem": "SELF APPT",
         "selfAppointment": "3123123312",
         "TipoServico":"AnaliseV2",
-        "alternativo":{
+        "alternativo":{  
            "ddd": ddd_alternativo,
            "telefone": telefone_alternativo
         },
-        "celular":{
+        "celular":{  
            "ddd": ddd,
            "telefone": telefone
         },
@@ -619,7 +706,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
         "dataNascimento": data_nascimento,
         "email": $scope.formParams.st1_email,
 
-        "enderecoCobranca":{
+        "enderecoCobranca":{  
            "FlagCEP":"1",
            "bairro": $scope.formParams.endereco.st2_bairro,
            "cep": $scope.formParams.endereco.st2_cep,
@@ -631,7 +718,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
            "referencia": $scope.formParams.endereco.st2_ponto_referencia,
            "uf": $scope.formParams.endereco.st2_estado
         },
-        "enderecoEntrega":{
+        "enderecoEntrega":{  
            "FlagCEP":"1",
            "bairro": endereco_entrega.st2_bairro,
            "cep": endereco_entrega.st2_cep,
@@ -688,10 +775,10 @@ function checkDate( date ) {
   if ( ardt[2] < 1900 || ardt[2] > ano_atual ){
     erro = true;
   }
-
-
+	
+	
   return erro;
-
+  
 }
 
 /* Retorna a idade da pessoa */
@@ -737,19 +824,19 @@ function checkCPF( cpf = "00000000000" ) {
     cpf == "88888888888" ||
     cpf == "99999999999"
   ) return false;
-
+    
   for (i=1; i<=9; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
   Resto = (Soma * 10) % 11;
-
+  
     if ((Resto == 10) || (Resto == 11))  Resto = 0;
     if (Resto != parseInt(cpf.substring(9, 10)) ) {
       return false;
-    }
-
+    } 
+  
   Soma = 0;
     for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
-
+  
     if ((Resto == 10) || (Resto == 11))  Resto = 0;
     if (Resto != parseInt(cpf.substring(10, 11) ) ) {
       return false;
