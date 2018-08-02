@@ -54,7 +54,7 @@
           <form name="formPrincipal" class="form-validation" role="form" novalidate>
 
             <div class="animate-switch-container" ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
-               <!--update version prod v06-->
+
                <!-- ============================ PRIMEIRO PASSO (STAGE0) -->
 
                <div class="animate-switch" ng-switch-default>
@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                       <label>INFORME O SEU CPF</label>
-                      <input type="text" class="form-control txt-cpf" id="cpf" name="cpf" ng-model="formParams.st1_cpf" ui-mask="999.999.999-99" required ng-class="{'input-error': formValidation && formPrincipal.cpf.$error.required}" ng-blur="validCPF(formParams.st1_cpf)">
+                      <input type="text" style="text-transform:uppercase" onkeyup="caps(this)" class="form-control txt-cpf" id="cpf" name="cpf" ng-model="formParams.st1_cpf" ui-mask="999.999.999-99" required ng-class="{'input-error': formValidation && formPrincipal.cpf.$error.required}">
                     </div>
 
                     <span class="msg-error" ng-show="formValidation && formPrincipal.cpf.$invalid">
@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                       <label>NOME COMPLETO</label>
-                      <input type="text" class="form-control" id="nome_completo" name="nome_completo" ng-model="formParams.st1_nome" required ng-class="{'input-error': formValidation && formPrincipal.nome_completo.$error.required}" maxlength="50">
+                      <input type="text" style="text-transform:uppercase" onkeyup="caps(this)" class="form-control" id="nome_completo" name="nome_completo" ng-model="formParams.st1_nome" required ng-class="{'input-error': formValidation && formPrincipal.nome_completo.$error.required}" maxlength="50">
                     </div>
 
 					<span class="msg-error" ng-show="formValidation && formPrincipal.nome_completo.$error.required">
@@ -118,8 +118,8 @@
 
                     <div class="form-group">
                       <label>TELEFONE ALTERNATIVO: </label>
-                      <!--<input type="text" class="form-control" id="telefone" name="telefone" ng-model="formParams.st1_telefone" ui-mask="(99) ?99999.9999" ng-class="{'input-error': formValidation && formPrincipal.telefone.$error.required}">-->
-                      <input type="text" class="form-control" id="alternativo" name="alternativo" ng-model="formParams.st1_telefone" ui-mask="(99) ?9999.9999" ng-minlength="10" ng-class="{'input-error': formValidation && formPrincipal.alternativo.$error.required}">
+                      <!--<input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="telefone" name="telefone" ng-model="formParams.st1_telefone" ui-mask="(99) ?99999.9999" ng-class="{'input-error': formValidation && formPrincipal.telefone.$error.required}">-->
+                      <input type="text" style="text-transform:uppercase" onkeyup="caps(this)" class="form-control" id="alternativo" name="alternativo" ng-model="formParams.st1_telefone" ui-mask="(99) ?9999.9999" ng-minlength="10" ng-class="{'input-error': formValidation && formPrincipal.alternativo.$error.required}">
                     </div>
 
                     <span class="msg-error" ng-show=" formValidation && formPrincipal.alternativo.$error.minlength">
@@ -136,7 +136,7 @@
 
                     <div class="form-group">
                       <label>E-MAIL: </label>
-                      <input type="email" class="form-control" id="email" name="email" ng-model="formParams.st1_email" required ng-class="{'input-error': formValidation && formPrincipal.email.$error.required}" maxlength="50">
+                      <input type="email" style="text-transform:uppercase" onkeyup="caps(this)" class="form-control" id="email" name="email" ng-model="formParams.st1_email" required ng-class="{'input-error': formValidation && formPrincipal.email.$error.required}" maxlength="50">
                     </div>
 
 					<span class="msg-error" ng-show="formValidation && formPrincipal.email.$error.required">
@@ -153,7 +153,7 @@
 
                     <div class="form-group">
                       <label>CONFIRME O E-MAIL: </label>
-                      <input type="email" class="form-control" id="confirme_email" name="confirme_email" ng-model="formParams.st1_confirm_email" required ng-class="{'input-error': formValidation && formPrincipal.confirme_email.$error.required}" maxlength="50">
+                      <input type="email" style="text-transform:uppercase" onkeyup="caps(this)" class="form-control" id="confirme_email" name="confirme_email" ng-model="formParams.st1_confirm_email" required ng-class="{'input-error': formValidation && formPrincipal.confirme_email.$error.required}" maxlength="50">
                     </div>
 
 					<span class="msg-error" ng-show="formValidation && formPrincipal.confirme_email.$error.required">
@@ -176,7 +176,7 @@
 
                     <div class="form-group">
                       <label>DATA DE NASCIMENTO</label>
-                      <input type="text" class="form-control" id="data_nascimento" name="data_nascimento" ng-model="formParams.st1_nasc_date" ui-mask="99/99/9999" ng-pattern="/(([0-2]{1}[0-9]{1}|3[0-1]{1})\/(0[0-9]{1}|1[0-2]{1})\/[0-9]{4})/" required ng-class="{'input-error': formValidation && formPrincipal.data_nascimento.$error.required}" ng-blur="validDate(formParams.st1_nasc_date)" model-view-value="true">
+                      <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="data_nascimento" name="data_nascimento" ng-model="formParams.st1_nasc_date" ui-mask="99/99/9999" ng-pattern="/(([0-2]{1}[0-9]{1}|3[0-1]{1})\/(0[0-9]{1}|1[0-2]{1})\/[0-9]{4})/" required ng-class="{'input-error': formValidation && formPrincipal.data_nascimento.$error.required}" ng-blur="validCPF(formParams.st1_cpf)" model-view-value="true">
                     </div>
 
 					<span class="msg-error" ng-show="formValidation && formPrincipal.data_nascimento.$error.required">
@@ -195,7 +195,7 @@
 
                     <div class="form-group">
                       <label class="customCheck">
-                        <input type="checkbox" name="termos" value="1" required ng-model="formParams.st1_termos" ng-class="{'input-error': formValidation && formPrincipal.termos.$error.required}">
+                        <input type="checkbox" name="termos" value="1" required ng-model="formParams.st1_termos" ng-class="{'input-error': formValidation && formPrincipal.termos.$error.required}" ng-click="validDate(formParams.st1_nasc_date)">
                         <span class="check"></span>
                         <div class="check-txt">Eu li e aceito os <a href="https://www.avoncomigo.avon.com.br/avoncadastra/terms_conditions.html" target="_blank">Termos de condi&ccedil;&otilde;es</a></div>
                       </label>
@@ -255,7 +255,7 @@
 
                       <div class="form-group">
                         <label>CEP</label>
-                        <input type="text" class="form-control txt-cpf" id="end_cep" name="end_cep" ng-model="formParams.endereco.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('normal', formParams.endereco)" required ng-class="{'input-error': formValidation && formPrincipal.end_cep.$error.required}">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control txt-cpf" id="end_cep" name="end_cep" ng-model="formParams.endereco.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('normal', formParams.endereco)" required ng-class="{'input-error': formValidation && formPrincipal.end_cep.$error.required}">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_cep.$error.required">
@@ -270,7 +270,7 @@
 					<div class="col-xs-12 col-md-2">
                     	<div class="form-group">
 							<label>TIPO ENDEREÇO</label>
-              <input type="text" class="form-control" style="text-transform:uppercase" id="end_logradouro" name="end_logradouro" ng-model="formParams.endereco.st2_logradouro" ng-readonly="validcep" required ng-class="{'input-error': formValidation && formPrincipal.end_logradouro.$error.required}" ng-blur="formParams.endereco.st2_logradouro = (formParams.endereco.st2_logradouro | uppercase)">
+              <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_logradouro" name="end_logradouro" ng-model="formParams.endereco.st2_logradouro" ng-readonly="validcep" required ng-class="{'input-error': formValidation && formPrincipal.end_logradouro.$error.required}" ng-blur="formParams.endereco.st2_logradouro = (formParams.endereco.st2_logradouro | uppercase)" maxlength="10" placeholder="">
 					  	</div>
 						<span class="msg-error" ng-show="formValidation && formPrincipal.end_logradouro.$error.required">
                       		Campo obrigat&oacute;rio
@@ -280,7 +280,7 @@
 				   <div class="col-xs-12 col-md-6">
                       <div class="form-group">
 						<label>ENDERE&Ccedil;O</label>
-                        <input type="text" class="form-control" id="end_endereco" name="end_endereco" ng-model="formParams.endereco.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_endereco.$error.required}" ng-readonly="validcep" maxlength="60">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_endereco" name="end_endereco" ng-model="formParams.endereco.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_endereco.$error.required}" ng-readonly="validcep" maxlength="60">
                       </div>
 
 				      <span class="msg-error" ng-show="formValidation && formPrincipal.end_endereco.$error.required">
@@ -293,7 +293,7 @@
 
                       <div class="form-group">
                         <label>N&Uacute;MERO</label>
-                        <input type="text" class="form-control" id="end_numero" name="end_numero" ng-model="formParams.endereco.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_numero.$error.required}" maxlength="5">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_numero" name="end_numero" ng-model="formParams.endereco.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_numero.$error.required}" maxlength="5">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_numero.$error.required">
@@ -306,7 +306,7 @@
 
                       <div class="form-group">
                         <label>COMPLEMENTO</label>
-                        <input type="text" class="form-control" id="end_complemento" name="end_complemento" ng-model="formParams.endereco.st2_complemento" maxlength="20">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_complemento" name="end_complemento" ng-model="formParams.endereco.st2_complemento" maxlength="20">
                       </div>
 
                     </div>
@@ -319,7 +319,7 @@
 
                       <div class="form-group">
                         <label>PONTO DE REFERENCIA (opcional) </label>
-                        <input type="text" class="form-control" id="end_ponto_referencia" name="end_ponto_referencia" ng-model="formParams.endereco.st2_ponto_referencia" maxlength="50">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_ponto_referencia" name="end_ponto_referencia" ng-model="formParams.endereco.st2_ponto_referencia" maxlength="50">
                       </div>
 
                     </div>
@@ -328,7 +328,7 @@
 
                       <div class="form-group">
                         <label>BAIRRO </label>
-                        <input type="text" class="form-control" id="end_bairro" name="end_bairro" ng-model="formParams.endereco.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_bairro.$error.required}" ng-readonly="validcep" maxlength="30">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_bairro" name="end_bairro" ng-model="formParams.endereco.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_bairro.$error.required}" ng-readonly="validcep" maxlength="30">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_bairro.$error.required">
@@ -345,7 +345,7 @@
 
                       <div class="form-group">
                         <label>CIDADE </label>
-                        <input type="text" class="form-control" id="end_cidade" name="end_cidade" ng-model="formParams.endereco.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_cidade.$error.required}" ng-readonly="validcep" maxlength="20">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_cidade" name="end_cidade" ng-model="formParams.endereco.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_cidade.$error.required}" ng-readonly="validcep" maxlength="20">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_cidade.$error.required">
@@ -364,7 +364,7 @@
                             <option value="">Selecione o Estado</option>
                         </select>-->
                         <!--ng-options="estado.nome for estado in estados-->
-                        <!--<input type="text" class="form-control" id="end_estado" name="end_estado" ng-pattern="/[A-Z\s]+/" ng-model="formParams.endereco.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-readonly="validcep" maxlength="2">-->
+                        <!--<input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_estado" name="end_estado" ng-pattern="/[A-Z\s]+/" ng-model="formParams.endereco.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-readonly="validcep" maxlength="2">-->
 
                         <select name="end_estado" class="form-control" id="end_estado" ng-model="formParams.endereco.st2_estado" ng-readonly="validcep" required ng-class="{'input-error': formValidation && formPrincipal.end_estado.$error.required}" ng-change="formParams.endereco.st2_estado = formParams.endereco.st2_estado.toUpperCase();" ng-disabled="validcep">
                             <option value="AC">ACRE</option>
@@ -441,7 +441,7 @@
 
                       <div class="form-group">
                         <label>CEP</label>
-                        <input type="text" class="form-control txt-cpf" id="end_entrega_cep" name="end_entrega_cep" ng-model="formParams.endereco_entrega.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('entrega', formParams.endereco_entrega)" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cep.$error.required}" >
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control txt-cpf" id="end_entrega_cep" name="end_entrega_cep" ng-model="formParams.endereco_entrega.st2_cep" ui-mask="99999-999" ng-blur="buscarCep('entrega', formParams.endereco_entrega)" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cep.$error.required}" >
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_cep.$error.required">
@@ -456,7 +456,7 @@
 				    <div class="col-xs-12 col-md-2">
 					    <div class="form-group">
 						  <label>TIPO ENDEREÇO</label>
-						  <input type="text" style="text-transform:uppercase" class="form-control" id="end_entrega_logradouro" name="end_entrega_logradouro" ng-model="formParams.endereco_entrega.st2_logradouro" ng-readonly="validcepentrega" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_logradouro.$error.required}" maxlength="60">
+						  <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_logradouro" name="end_entrega_logradouro" ng-model="formParams.endereco_entrega.st2_logradouro" ng-readonly="validcepentrega" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_logradouro.$error.required}" maxlength="60">
 					    </div>
 						<span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_logradouro.$error.required">
                       		Campo obrigat&oacute;rio
@@ -467,7 +467,7 @@
 
                       <div class="form-group">
                         <label>ENDERE&Ccedil;O</label>
-                        <input type="text" class="form-control" id="end_entrega_endereco" name="end_entrega_endereco" ng-model="formParams.endereco_entrega.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_endereco.$error.required}" ng-readonly="validcepentrega" maxlength="60">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_endereco" name="end_entrega_endereco" ng-model="formParams.endereco_entrega.st2_endereco" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_endereco.$error.required}" ng-readonly="validcepentrega" maxlength="60">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_endereco.$error.required">
@@ -480,7 +480,7 @@
 
                       <div class="form-group">
                         <label>N&Uacute;MERO</label>
-                        <input type="text" class="form-control" id="end_entrega_numero" name="end_entrega_numero" ng-model="formParams.endereco_entrega.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_numero.$error.required}" maxlength="5">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_numero" name="end_entrega_numero" ng-model="formParams.endereco_entrega.st2_numero" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_numero.$error.required}" maxlength="5">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_numero.$error.required">
@@ -493,7 +493,7 @@
 
                       <div class="form-group">
                         <label>COMPLEMENTO</label>
-                        <input type="text" class="form-control" id="end_entrega_complemento" name="end_entrega_complemento" ng-model="formParams.endereco_entrega.st2_complemento" maxlength="20">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_complemento" name="end_entrega_complemento" ng-model="formParams.endereco_entrega.st2_complemento" maxlength="20">
                       </div>
 
                     </div>
@@ -506,7 +506,7 @@
 
                       <div class="form-group">
                         <label>PONTO DE REFERENCIA (opcional) </label>
-                        <input type="text" class="form-control" id="end_entrega_ponto_referencia" name="end_entrega_ponto_referencia" ng-model="formParams.endereco_entrega.st2_ponto_referencia" maxlength="50">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_ponto_referencia" name="end_entrega_ponto_referencia" ng-model="formParams.endereco_entrega.st2_ponto_referencia" maxlength="50">
                       </div>
 
                     </div>
@@ -515,7 +515,7 @@
 
                       <div class="form-group">
                         <label>BAIRRO </label>
-                        <input type="text" class="form-control" id="end_entrega_bairro" name="end_entrega_bairro" ng-model="formParams.endereco_entrega.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_bairro.$error.required}" ng-readonly="validcepentrega" maxlength="30">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_bairro" name="end_entrega_bairro" ng-model="formParams.endereco_entrega.st2_bairro" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_bairro.$error.required}" ng-readonly="validcepentrega" maxlength="30">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_bairro.$error.required">
@@ -532,7 +532,7 @@
 
                       <div class="form-group">
                         <label>CIDADE </label>
-                        <input type="text" class="form-control" id="end_entrega_cidade" name="end_entrega_cidade" ng-model="formParams.endereco_entrega.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cidade.$error.required}" ng-readonly="validcepentrega" maxlength="20">
+                        <input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_cidade" name="end_entrega_cidade" ng-model="formParams.endereco_entrega.st2_cidade" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_cidade.$error.required}" ng-readonly="validcepentrega" maxlength="20">
                       </div>
 
 					  <span class="msg-error" ng-show="formValidation && formPrincipal.end_entrega_cidade.$error.required">
@@ -545,7 +545,7 @@
 
                       <div class="form-group">
                         <label>ESTADO </label>
-                        <!--<input type="text" class="form-control" id="end_entrega_estado" name="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-readonly="validcepentrega" maxlength="2">-->
+                        <!--<input type="text" style="text-transform:uppercase" onkeyup="caps(this)"  class="form-control" id="end_entrega_estado" name="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-readonly="validcepentrega" maxlength="2">-->
                         <select name="end_entrega_estado" class="form-control" id="end_entrega_estado" ng-model="formParams.endereco_entrega.st2_estado" ng-readonly="validcepentrega" required ng-class="{'input-error': formValidation && formPrincipal.end_entrega_estado.$error.required}" ng-change="formParams.endereco_entrega.st2_estado = formParams.endereco_entrega.st2_estado.toUpperCase();" ng-disabled="validcepentrega">
                             <option value="AC">ACRE</option>
                             <option value="AL">ALAGOAS</option>
@@ -629,7 +629,7 @@
                           <p class="text">Insira uma foto do seu rosto segurando o documento de identificação (RG ou CNH) ao lado.</p>
                           <p class="text">O documento deverá estar com a foto posicionada para frente.</p>
                           <p class="text mt16">Caso use óculos, remova-o e fique de frente para a câmera.</p>
-                          <p class="text mt16">S&oacute; será permitido arquivos com at&eacute; 3mb.</p>
+                          <p class="text mt16">S&oacute; será permitido arquivos com at&eacute; 3MB.</p>
 
                         </div>
 
@@ -658,7 +658,7 @@
                         </div>-->
       <div class="drop-box">
           <div class="drop-text a-center">
-              Arraste o arquivo para esta área ou clique em
+              Para carregar a Foto clique em
           </div>
           <div class="drop-button a-center mt16">
             <button type="file" ngf-select="uploadArquivo('foto', $file)" ngf-drop="uploadArquivo('foto', $file)" ng-model="file_foto" name="filess"
@@ -676,7 +676,7 @@
                           <p class="file-size">{{ file_foto == '' ? '0kb' : file_foto.tamanho }}</p>
 
                           <p class="msg-error" ng-show="formPrincipal.filess.$error.maxSize">
-                            Arquivo pesado, o máximo é de 3mb <br/><br/>
+                            Arquivo pesado, o máximo é de 3MB <br/><br/>
                           </p>
 						  <!--<img ng-show="formPrincipal.file.$valid" ngf-thumbnail="file_foto" class="thumb">-->
 						  <!--<p ng-click="removeFile(file_foto)">X</p>-->
@@ -690,7 +690,7 @@
                   </div>
 
                 </div>
-                <span class="msg-error" ng-show="formValidation">
+                <span class="msg-error" ng-show="formValidation && file_foto == ''">
                   Insira o arquivo de foto
                 </span>
 
@@ -714,7 +714,7 @@
 
                           <p class="text">Anexe o comprovante de residência com vencimento nos últimos três meses.</p>
                           <p class="text">Pode ser uma conta de água ou telefone</p>
-                          <p class="text mt16">S&oacute; será permitido arquivos com at&eacute; 3mb.</p>
+                          <p class="text mt16">S&oacute; será permitido arquivos com at&eacute; 3MB.</p>
 
                         </div>
 
@@ -742,7 +742,7 @@
 
                         <div class="drop-box">
                           <div class="drop-text a-center">
-                              Arraste o arquivo para esta área ou clique em
+                              Para carregar o Documento clique em
                           </div>
                           <div class="drop-button a-center mt16">
                             <button type="file" ngf-select="uploadArquivo('residencia', $file)" ngf-drop="uploadArquivo('residencia', $file)" ng-model="file_residencia" name="filess_residencia"
@@ -761,7 +761,7 @@
                           <p class="file-size">{{ file_residencia == '' ? '0kb' : file_residencia.tamanho }}</p>
 
                           <p class="msg-error" ng-show="formPrincipal.filess_residencia.$error.maxSize">
-                            Arquivo pesado, o máximo é de 3mb <br/><br/>
+                            Arquivo pesado, o máximo é de 3MB <br/><br/>
                           </p>
 						  <!--<p ng-click="file_residencia = ''">X</p>-->
                         </div>
@@ -797,7 +797,7 @@
                         <div class="col-xs-8">
 
                           <p class="text">Agora precisamos de dois arquivos, a foto da parte da frente, e uma outra foto da parte do verso do seu documento.</p>
-                          <p class="text mt16">Só será permitido arquivos com at&eacute; 3mb.</p>
+                          <p class="text mt16">Só será permitido arquivos com at&eacute; 3MB.</p>
 
                         </div>
 
@@ -809,31 +809,17 @@
 
                       <div class="file-box">
 
-                        <label class="dblock">INSIRA A FOTO DA FRENTE E A FOTO DO VERSO DO DOCUMENTO</label>
-
-                        <!--<div ngf-drop="uploadArquivo('identificacao', $file)" ngf-select="uploadArquivo('identificacao', $file)" ng-model="file_identificacao" class="drop-box">
-
-                          <div class="drop-text a-center">
-                            Arraste o arquivo para est&aacute; &aacute;rea ou clique em
-                          </div>
-
-                          <div class="drop-button a-center mt16">
-							  <button type="button" class="btn btn-info btn-arquivo">Procurar Imagem</button>
-                          </div>
-
-                        </div>-->
+                        <label class="dblock">INSIRA A FOTO DA FRENTE DO DOCUMENTO</label>
 
                         <div class="drop-box">
                           <div class="drop-text a-center">
-                              Arraste o arquivo para esta área ou clique em
+                              Para carregar o Documento clique em
                           </div>
                           <div class="drop-button a-center mt16">
-                            <button type="file" ngf-select="uploadArquivo('identificacao', $file)" ngf-drop="uploadArquivo('identificacao', $file)" ng-model="file_identificacao" name="filess_identificacao"    
+                            <button type="file" ngf-select="uploadArquivo('identificacao1', $file)" ngf-drop="uploadArquivo('identificacao1', $file)" ng-model="file_identificacao1" name="filess_identificacao1"
                              accept="image/*" ngf-max-size="3MB" required
                              ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
                           </div>
-                          <!--<i ng-show="formPrincipal.file.$error.maxSize">File too large 
-                          {{errorFile.size / 1000000|number:1}}MB: max 2M</i>-->
                         </div>
 
                         <div class="upload-item">
@@ -841,10 +827,44 @@
 
                           <p class="file-name">{{ file_identificacao1 == '' ? 'Nenhum arquivo selecionado' : file_identificacao1.name }}</p>
                           <p class="file-size">{{ file_identificacao1 == '' ? '0kb' : file_identificacao1.tamanho }}</p>
-                         <!-- <p class="msg-error" ng-show="formPrincipal.filess_identificacao.$error.maxSize">
-                            Arquivo pesado, o máximo é de 3mb <br/><br/>
+                          <p class="msg-error" ng-show="formPrincipal.filess_identificacao1.$error.maxSize">
+                            Arquivo pesado, o máximo é de 3MB <br/><br/>
                           </p>
-						  <p ng-click="file_identificacao1 = ''">X</p>-->
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <span class="msg-error" ng-show="formValidation && file_identificacao1 == ''">
+                  Insira os arquivos de identifica&ccedil;&atilde;o
+                </span>
+
+                <!--ide 2-->
+
+                <div class="content-arquivo">
+
+                  <div class="row">
+
+                    <div class="col-xs-12 col-md-5 mtop16 col-md-offset-7">
+
+                      <div class="file-box">
+
+                        <label class="dblock">INSIRA A FOTO DO VERSO DO DOCUMENTO</label>
+
+                        <div class="drop-box">
+                          <div class="drop-text a-center">
+                              Para carregar o Documento clique em
+                          </div>
+                          <div class="drop-button a-center mt16">
+                            <button type="file" ngf-select="uploadArquivo('identificacao2', $file)" ngf-drop="uploadArquivo('identificacao2', $file)" ng-model="file_identificacao2" name="filess_identificacao2"
+                             accept="image/*" ngf-max-size="3MB" required
+                             ngf-model-invalid="errorFile" class="btn btn-info btn-arquivo">Procurar Imagem</button>
+                          </div>
                         </div>
 
                         <div class="upload-item">
@@ -852,10 +872,9 @@
 
                           <p class="file-name">{{ file_identificacao2 == '' ? 'Nenhum arquivo selecionado' : file_identificacao2.name }}</p>
                           <p class="file-size">{{ file_identificacao2 == '' ? '0kb' : file_identificacao2.tamanho }}</p>
-                          <p class="msg-error" ng-show="formPrincipal.filess_identificacao.$error.maxSize">
-                            Arquivo pesado, o máximo é de 3mb <br/><br/>
+                          <p class="msg-error" ng-show="formPrincipal.filess_identificacao2.$error.maxSize">
+                            Arquivo pesado, o máximo é de 3MB <br/><br/>
                           </p>
-						  <!--<p ng-click="file_identificacao2 = ''">X</p>-->
 
                         </div>
 
@@ -867,7 +886,7 @@
 
                 </div>
 
-                <span class="msg-error" ng-show="formValidation && (file_identificacao1 == '' || file_identificacao2 == '')">
+                <span class="msg-error" ng-show="formValidation && file_identificacao2 == ''">
                   Insira os arquivos de identifica&ccedil;&atilde;o
                 </span>
 
@@ -890,7 +909,7 @@
                         <div class="col-xs-8">
 
                           <p class="text">Inserir CPF caso seu documento de identifica&ccedil;&atilde;o não conste o número.</p>
-                          <p class="text mt16">Só será permitido arquivos com at&eacute; 3mb.</p>
+                          <p class="text mt16">Só será permitido arquivos com at&eacute; 3MB.</p>
 
                         </div>
 
@@ -918,7 +937,7 @@
 
                         <div class="drop-box">
                             <div class="drop-text a-center">
-                                Arraste o arquivo para esta área ou clique em
+                                Para carregar o Documento clique em
                             </div>
                             <div class="drop-button a-center mt16">
                               <button type="file" ngf-select="uploadArquivo('cpf', $file)" ngf-drop="uploadArquivo('cpf', $file)" ng-model="file_cpf" name="filess_cpf"
@@ -935,7 +954,7 @@
                           <p class="file-name">{{ file_cpf == '' ? 'Nenhum arquivo selecionado' : file_cpf.name }}</p>
                           <p class="file-size">{{ file_cpf == '' ? '0kb' : file_cpf.tamanho }}</p>
                           <p class="msg-error" ng-show="formPrincipal.filess_cpf.$error.maxSize">
-                            Arquivo pesado, o máximo é de 3mb <br/><br/>
+                            Arquivo pesado, o máximo é de 3MB <br/><br/>
                           </p>
 						  <!--<p ng-click="file_cpf = ''">X</p>-->
 
@@ -948,12 +967,9 @@
                   </div>
 
                 </div>
-
-                <!--
                 <span class="msg-error" ng-show="formValidation && (file_cpf == '')">
                   Insira o arquivo de CPF
                 </span>
-              -->
 
                 <!-- So mostra esse componente se o usuario for maior de idade -->
                 <div ng-if="idade < '18'">
@@ -977,7 +993,7 @@
                           <div class="col-xs-8">
 
                             <p class="text">Muito bem, voc&ecirc; disse na tela anterior que &eacute; emancipada, ent&atilde;o precisamos do seu documento de emancipa&ccedil;&atilde;o.</p>
-                            <p class="text mt16">S&oacute; sera permitido arquivos com at&eacute; 3mb.</p>
+                            <p class="text mt16">S&oacute; sera permitido arquivos com at&eacute; 3MB.</p>
 
                           </div>
 
@@ -994,7 +1010,7 @@
                           <div ngf-drop="uploadArquivo('emancipacao', $file)" ngf-select="uploadArquivo('emancipacao', $file)" ng-model="file_emancipacao" class="drop-box">
 
                             <div class="drop-text a-center">
-                              Arraste o arquivo para est&aacute; &aacute;rea ou clique em
+                              Para carregar o Documento clique em
                             </div>
 
                             <div class="drop-button a-center mt16">
@@ -1041,7 +1057,7 @@
               <!-- ================ -->
 
                <!-- PASSO QUATRO, ENVIO DOS DADOS ================ -->
-              <div class="animate-switch" ng-switch-when="stage3">
+              <div class="animate-switch" ng-switch-when="stage3" onLoad="setFocus()" >
 
                 <h1 class="title mt60">Alguem te indicou?</h1>
 
@@ -1051,10 +1067,12 @@
                   <div class="col-xs-12 col-md-6">
 
                     <div class="form-group mt16">
-                      <label>QUAL O REGISTRO DO REVENDEDOR(A) INDICANTE?</label>
-                      <input type="text" class="form-control txt-cpf" id="registro_indicante" name="registro_indicante" ng-model="formParams.registro_indicante" ng-pattern="/^[0-9]+/" maxlength="8">
+                      <label>QUAL O REGISTRO DO REVENDEDOR(A) INDICANTE? (OPCIONAL)</label>
+
+						<input type="text" style="text-transform:uppercase" class="form-control txt-cpf" id="registro_indicante" name="registro_indicante" ng-model="formParams.registro_indicante" ng-pattern="/^[0-9]+/" maxlength="8">
                       <!-- onKeyDown="if(this.value.length==8) return false;"-->
-                    </div>
+
+					</div>
                     <span class="msg-error" ng-show="formPrincipal.registro_indicante.$error.pattern">
                       Digite somente números
                     </span>
@@ -1135,10 +1153,21 @@ Caso você tenha alguma dúvida entre em contato com: 0800 9407373</p>
       <script src="app/assets/js/mask.min.js"></script>
       <script src="app/assets/js/jquery.browser.js"></script>
 
+	  <script type="text/javascript">
+		function setFocus() {
+		document.getElementById("registro_indicante").focus();
+		}
+		</script>
+
       <script src="app/assets/js/ng-file-upload.min.js"></script>
       <script src="app/assets/js/ng-file-upload-shim.min.js"></script>
 
       <script src="app/app.js"></script>
 	  <script src="app/assets/js/remove-accents.js"></script>
+	  <script> function caps(element){
+				element.value = element.value.toUpperCase();
+				}
+	</script>
+
    </body>
 </html>

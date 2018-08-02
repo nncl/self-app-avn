@@ -9,115 +9,6 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
   $scope.numero_proposta = "";
 
   $scope.formParams = {};
-  /*$scope.estados = [
-      {
-        "nome": 'AC'
-      },
-
-      {
-        "nome": 'AL'
-      },
-
-      {
-        "nome": 'AP'
-      },
-
-      {
-        "nome": 'AM'
-      },
-
-      {
-        "nome": 'BA'
-      },
-
-      {
-        "nome": 'CE'
-      },
-
-      {
-        "nome": 'DF'
-      },
-
-      {
-        "nome": 'ES'
-      },
-
-      {
-        "nome": 'GO'
-      },
-
-      {
-        "nome": 'MA'
-      },
-
-      {
-        "nome": 'MT'
-      },
-
-      {
-        "nome": 'MS'
-      },
-
-      {
-        "nome": 'MG'
-      },
-
-      {
-        "nome": 'PA'
-      },
-
-      {
-        "nome": 'PB'
-      },
-
-      {
-        "nome": 'PR'
-      },
-
-      {
-        "nome": 'PE'
-      },
-
-      {
-        "nome": 'PI'
-      },
-
-      {
-        "nome": 'RJ'
-      },
-
-      {
-        "nome": 'RN'
-      },
-
-      {
-        "nome": 'RS'
-      },
-
-      {
-        "nome": 'RO'
-      },
-
-      {
-        "nome": 'RR'
-      },
-
-      {
-        "nome": 'SC'
-      },
-
-      {
-        "nome": 'SP'
-      },
-
-      {
-        "nome": 'SE'
-      },
-
-      {
-        "nome": 'TO'
-      }
-  ]*/
 
   $scope.stage = "";
   $scope.formValidation = false;
@@ -240,19 +131,21 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
       break;
 
-      case 'identificacao':
+      case 'identificacao1':
 
-        if($scope.file_identificacao1 == '' || $scope.file_identificacao1 == null) {
           $scope.file_identificacao1 = arquivo;
           if( $scope.file_identificacao1 != null ){
             $scope.file_identificacao1.tamanho = formatFileSize(arquivo.size, 3);
           }
-        } else if($scope.file_identificacao1 != '' && arquivo != null) {
+
+      break;
+
+      case 'identificacao2':
+
           $scope.file_identificacao2 = arquivo;
           if( $scope.file_identificacao2 != null ){
             $scope.file_identificacao2.tamanho = formatFileSize(arquivo.size, 3);
           }
-        }
 
       break;
 
@@ -399,10 +292,16 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     if(!checkCPF(cpf)) {
       $scope.formPrincipal.cpf.$setValidity("validador", false);
     } else {
-
+//if($scope.numero_proposta == ""){
       $scope.formPrincipal.cpf.$setValidity("validador", true);
 
       var url = "https://pco-cornerstone.serasaexperian.com.br/avon/v1?workflow=AnaliseCadastral";
+
+      var ddd = $scope.formParams.st1_celular.substring(0, 2);
+      var telefone = $scope.formParams.st1_celular.substring(2);
+
+      var ddd_alternativo = $scope.formParams.st1_telefone.substring(0, 2);
+      var telefone_alternativo = $scope.formParams.st1_telefone.substring(2);
 
       var parameter = JSON.stringify(
         {
@@ -412,24 +311,37 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
             "cpf": cpf,
             "TipoServico": "CPF",
             "setorEVA": $scope.setorEVA,
-            "regAscEVA": $scope.regEVA
+            "regAscEVA": $scope.regEVA,
+
+            "nome": $scope.formParams.st1_nome,
+            "alternativo":{  
+               "ddd": ddd_alternativo,
+               "telefone": telefone_alternativo
+            },
+            "celular":{  
+               "ddd": ddd,
+               "telefone": telefone
+            },
+            "email": $scope.formParams.st1_email
           }
         }
       );
+
+      //var parameter = $scope.getSendParameter();
+
+      console.log(parameter);
 
       $http({
           method: 'POST',
           url: url,
           data: parameter,
           headers: {
-              "Content-Type": "text/plain"
+              "Content-Type": "text/plain; charset=UTF-8\r\n"
           },
       }).then(function(response) {
 
         var dados = response.data;
         var dados_proposta = dados.data.proposta;
-
-        //console.log(dados.data.uf);
         
         /* Retorna erro referente ao cpf */
         if(dados.status > 2) {
@@ -441,19 +353,19 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
 
           /* Pega o dado de valor da proposta */
           $scope.numero_proposta = dados_proposta.numeroProposta;
+          console.log($scope.numero_proposta);
 
         }
 
       });
-
+//}
     }
 
   }
 
   /* ============== Validação e requisição do serviço de CPF */
   $scope.validDate = function ( date ) {
-
-    $scope.idade = getIdade( date );
+  $scope.idade = getIdade( date );
 	  
 	checkDate( date );
 		  
@@ -476,7 +388,8 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     $scope.formParams.st1_confirm_email = '';
     $scope.formParams.st1_nasc_date = '';
     $scope.formParams.st1_termos = '';
-
+    $scope.numero_proposta = '';
+    $scope.formValidation.$pristine;
   }
 
   /* ============== Função padrão para validação e passagem de passo */
@@ -484,7 +397,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
     
     $scope.formValidation = true;
     
-    if ($scope.formPrincipal.$valid) {
+    if ($scope.formPrincipal.$valid  && $scope.formParams.st1_email == $scope.formParams.st1_confirm_email) {
       $scope.direction = 1;
       $scope.stage = stage;
       $scope.formValidation = false;
@@ -591,7 +504,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
         //var base64 = e.target.result.split("data:image/jpeg;base64,").pop();
 
         $scope.json_arquivos.push({
-          "tipoImagem": "6",
+          "tipoImagem": "5",
           "base64": base64
         });
 
@@ -609,7 +522,7 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
         //var base64 = e.target.result.split("data:image/jpeg;base64,").pop();
 
         $scope.json_arquivos.push({
-          "tipoImagem": "5",
+          "tipoImagem": "6",
           "base64": base64
         });
 
