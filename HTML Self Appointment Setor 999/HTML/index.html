@@ -244,7 +244,7 @@
                <!-- ================ -->
 
                <!-- PASSO DOIS, ENDERECOS ================ -->
-              <div class="animate-switch" ng-switch-when="stage1">
+              <div class="animate-switch" ng-switch-when="stage1" ng-init='setFocus(1)'>
 
                 <h1 class="title mt60">Informe seu endere&ccedil;o</h1>
 
@@ -604,7 +604,7 @@
 
               <!-- PASSO TRES, ARQUIVOS =============== -->
               <!-- <div class="animate-switch" ng-switch-when="stage2"> -->
-              <div class="animate-switch" ng-switch-when="stage2">
+              <div class="animate-switch" ng-switch-when="stage2" ng-init='setFocus(2)'>
 
                 <h1 class="title mt60">Vamos anexar os documentos</h1>
 
@@ -1057,7 +1057,7 @@
               <!-- ================ -->
 
                <!-- PASSO QUATRO, ENVIO DOS DADOS ================ -->
-              <div class="animate-switch" ng-switch-when="stage3" onLoad="setFocus()" >
+              <div class="animate-switch" ng-switch-when="stage3" ng-init='setFocus(3)' >
 
                 <h1 class="title mt60">Alguem te indicou?</h1>
 
@@ -1095,7 +1095,7 @@
               <!-- ================ -->
 
                <!-- PASSO CINCO, SUCESSO ================ -->
-              <div class="animate-switch" ng-switch-when="stage4">
+              <div class="animate-switch" ng-switch-when="stage4" ng-init='setFocus(4)'>
 
                 <h1 class="title mt60">Quase l&aacute;!</h1>
 
@@ -1153,21 +1153,11 @@ Caso você tenha alguma dúvida entre em contato com: 0800 9407373</p>
       <script src="app/assets/js/mask.min.js"></script>
       <script src="app/assets/js/jquery.browser.js"></script>
 
-	  <script type="text/javascript">
-		function setFocus() {
-		document.getElementById("registro_indicante").focus();
-		}
-		</script>
-
       <script src="app/assets/js/ng-file-upload.min.js"></script>
       <script src="app/assets/js/ng-file-upload-shim.min.js"></script>
 
       <script src="app/app.js"></script>
 	  <script src="app/assets/js/remove-accents.js"></script>
-	  <script> function caps(element){
-				element.value = element.value.toUpperCase();
-				}
-	</script>
 
    </body>
 </html>

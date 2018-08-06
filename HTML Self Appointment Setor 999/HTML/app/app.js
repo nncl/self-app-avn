@@ -83,6 +83,29 @@ controller('formCtrl', ['$scope', '$http', '$filter', 'Upload', function($scope,
   $scope.file_emancipacao = '';
 	$scope.mensagem = '';
 
+  $scope.setFocus = function(ddStage) {
+    switch (ddStage) {
+      case 1:
+        document.getElementById("end_cep").focus();
+        break;
+      case 3:
+        document.getElementById("registro_indicante").focus();
+        break;
+    }
+
+    var scrollStep = -window.scrollY / (700 / 15),
+        scrollInterval = setInterval(function(){
+        if ( window.scrollY >= 800 ) {
+            window.scrollBy( 0, scrollStep );
+        }
+        else clearInterval(scrollInterval); 
+    },15);
+  }
+
+  $scope.caps = function(element) {
+    element.value = element.value.toUpperCase();
+  }
+
 	$scope.formatNome = function (source) {
                 var accent = [
                         /[\300-\306]/g, /[\340-\346]/g, // A, a
